@@ -928,6 +928,12 @@ start_upnp(void)
 	fclose(fp);
 
 	create_file(UPNPD_LEASE_FILE);
+
+	char *current_ip = nvram_safe_get("wan0_ipaddr");
+	if (current_ip == NULL || strlen(current_ip) == 0 || strcmp(current_ip, "0.0.0.0") == 0) {
+		return eval("sh", "-c", "(until ip route | grep -q default; do sleep 2; done; /usr/bin/miniupnpd) &");
+	}
+
 	return eval("/usr/bin/miniupnpd");
 }
 
