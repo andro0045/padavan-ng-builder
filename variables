@@ -1,4 +1,4 @@
-PADAVAN_REPO=https://github.com/nilabsent/padavan-ng
+PADAVAN_REPO=https://github.com/andro0045/padavan-ng
 PADAVAN_BRANCH=master
 PADAVAN_COMMIT=HEAD
 PADAVAN_TOOLCHAIN_URL=
